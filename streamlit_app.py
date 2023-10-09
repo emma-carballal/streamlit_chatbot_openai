@@ -7,10 +7,13 @@ openai.api_key = st.secrets["OPENAI_API_KEY"]
 # App title
 st.set_page_config(page_title="💬 Grammatik ChatGPT")
 
-# Store LLM generated responses
+"st.session_state:", st.session_state
+
+# Choose OpenAI model
 if "openai_model" not in st.session_state.keys():
     st.session_state.openai_model = "gpt-3.5-turbo"
 
+# Initialize chat messages
 if "messages" not in st.session_state.keys():
     st.session_state.messages = [{"role": "assistant", "content": "Hallo! Wie geht es dir?"}]
 
