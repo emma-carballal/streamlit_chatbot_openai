@@ -31,9 +31,9 @@ Die Folgefrage sollte sich nicht auf die Grammatik beziehen, sondern versuchen, 
                                  {"role": "assistant", "content": "Hallo! Wie geht es dir?"}]
 
 # Display chat messages
-for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.write(message["content"])
+# for message in st.session_state.messages:
+#     with st.chat_message(message["role"]):
+#         st.write(message["content"])
 
 if prompt := st.chat_input():
     st.session_state.messages.append({"role": "user", "content": prompt})
