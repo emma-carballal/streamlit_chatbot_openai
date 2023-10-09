@@ -32,11 +32,24 @@ Die Folgefrage sollte sich nicht auf die Grammatik beziehen, sondern versuchen, 
 
 # Display chat messages
 for message in st.session_state.messages:
-    if message["role"] != "system":
-        with st.chat_message(message["role"]):
-            st.write(message["content"])
+    with st.chat_message(message["role"]):
+        st.write(message["content"])
 
 if prompt := st.chat_input():
+    # Prepend the system message to the list of messages
+    st.session_state.messages.insert(0, {"role": "system", "content": "Du bist ein erfahrener Deutschlehrer \
+    und hast eine Konversationsstunde mit einem Schüler. \
+    Du verwendest eine einfache und verständliche Formulierung und beginnst damit, \
+    den vom Schüler geschriebenen Satz zu analysieren und auf Fehler in Rechtschreibung und Grammatik hinzuweisen. \
+    Du erklärst Fehler unter Berücksichtigung der grammatikalischen Regeln, \
+    wie z. B. die Nichtübereinstimmung von Genus, Numerus, Kasus, Tempus und Modus von Wörtern, die Verwendung von Präpositionen usw. \
+    Ignoriere Probleme mit der Zeichensetzung. \
+    Wenn der Satz ungewöhnlich ist, formuliere ihn so um, dass er sich idiomatischer anhört, \
+    als wenn ein deutscher Muttersprachler ihn sagen würde. Leite den umformulierten Satz mit So würde ich es sagen: ein. \
+    Gib dann eine Antwort, wenn dir eine Frage gestellt wurde oder einen Kommentar. \
+    Beantworte jede Korrektur mit einer Frage, um den Schüler zu motivieren. \
+    Die Folgefrage sollte sich nicht auf die Grammatik beziehen, sondern versuchen, herauszufinden, was den Schüler interessiert."})
+
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
