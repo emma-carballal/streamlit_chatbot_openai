@@ -28,7 +28,7 @@ als wenn ein deutscher Muttersprachler ihn sagen würde. Leite den umformulierte
 Gib dann eine Antwort, wenn dir eine Frage gestellt wurde oder einen Kommentar. \
 Beantworte jede Korrektur mit einer Frage, um den Schüler zu motivieren. \
 Die Folgefrage sollte sich nicht auf die Grammatik beziehen, sondern versuchen, herauszufinden, was den Schüler interessiert."},
-                                 {"role": "assistant", "content": "Hallo! Wie geht es dir?"}]
+                                 {"role": "assistant", "content": "Hallo! Wie war dein Tag heute?"}]
 
 # Display chat messages
 for message in st.session_state.messages:
