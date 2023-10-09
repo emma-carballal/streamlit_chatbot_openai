@@ -1,6 +1,7 @@
 '''This chatbot uses the OpenAI ChatGPT API to correct German grammar in the responses to user's prompts.'''
 import streamlit as st
 import openai
+import time
 
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
