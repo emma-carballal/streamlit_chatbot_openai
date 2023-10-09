@@ -40,13 +40,6 @@ if prompt := st.chat_input():
             stream=True,
         ):
             full_response += response.choices[0].delta.get("content", "")
-        #     message_placeholder.markdown(full_response + "▌")
-        # message_placeholder.markdown(full_response)
-    # Simulate stream of response with milliseconds delay
-            for chunk in assistant_response.split():
-                full_response += chunk + " "
-                time.sleep(0.05)
-                # Add a blinking cursor to simulate typing
-                message_placeholder.markdown(full_response + "▌")
-            message_placeholder.markdown(full_response)        
+            message_placeholder.markdown(full_response + "▌")
+        message_placeholder.markdown(full_response)      
     st.session_state.messages.append({"role": "assistant", "content": full_response})
