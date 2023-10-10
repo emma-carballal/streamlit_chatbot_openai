@@ -20,8 +20,9 @@ if "messages" not in st.session_state.keys():
 
 # Display chat messages
 for message in st.session_state.messages:
-    with st.chat_message(message["role"]):
-        st.write(message["content"])
+    if st.chat_message != "system":
+        with st.chat_message(message["role"]):
+            st.write(message["content"])
 
 if prompt := st.chat_input():
     # Prepend the system message to the list of messages
